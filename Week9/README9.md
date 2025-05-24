@@ -18,7 +18,7 @@ Rules of a Binary Search Tree:
 
 Each node is defined using a template structure:
 
-```cpp
+
 template<class T>
 struct TreeNode {
     T info;
@@ -29,9 +29,7 @@ This allows the tree to handle any data type and link nodes via left and right p
 
 BST Class Overview
 Member Variable
-cpp
-Copy
-Edit
+
 TreeNode<T>* root;
 Points to the topmost node in the tree
 
@@ -39,29 +37,21 @@ If root is null, the tree is empty
 
 Operations
 Constructor and Destructor
-cpp
-Copy
-Edit
+
 BinarySearchTree();      // Initializes root to nullptr
 ~BinarySearchTree();     // Deletes all nodes recursively using post-order traversal
 Insertion
-cpp
-Copy
-Edit
+
 void insertItem(T item);
 Recursively finds the correct position and inserts a new node:
 
-cpp
-Copy
-Edit
+
 if (item < node->info)
     insertHelper(node->left, item);
 else if (item > node->info)
     insertHelper(node->right, item);
 Search
-cpp
-Copy
-Edit
+
 void RetrieveItem(T& item, bool& found);
 Recursively searches for the item:
 
@@ -70,9 +60,7 @@ If found, sets found to true
 Otherwise, sets found to false
 
 Deletion
-cpp
-Copy
-Edit
+
 void DeleteItem(T& item);
 Handles three cases:
 
@@ -83,15 +71,11 @@ Node with one child - replace node with its child
 Node with two children - replace with in-order successor (smallest value in right subtree)
 
 In-Order Traversal
-cpp
-Copy
-Edit
+
 void PrintTree();
 Performs in-order traversal (left, root, right) and prints the tree:
 
-cpp
-Copy
-Edit
+
 void PrintHelper(TreeNode<T>* node) {
     if (node != nullptr) {
         PrintHelper(node->left);
@@ -100,36 +84,27 @@ void PrintHelper(TreeNode<T>* node) {
     }
 }
 Node Count
-cpp
-Copy
-Edit
+
 int NumberOfNodes();
 Recursively counts and returns the number of nodes in the tree.
 
 Example Usage
 Inserting Integers
-cpp
-Copy
-Edit
+
 BinarySearchTree<int> bst;
 bst.insertItem(10);
 bst.insertItem(5);
 bst.insertItem(15);
 bst.insertItem(3);
 bst.insertItem(7);
+
 Output:
 
-mathematica
-Copy
-Edit
 In-order: 3 5 7 10 15
 Total nodes: 5
 Item found
 After deleting 7: 3 5 10 15
 Inserting Characters
-cpp
-Copy
-Edit
 BinarySearchTree<char> bst;
 string str = "hello";
 for (char ch : str)
